@@ -26,7 +26,7 @@ GPLv3
             //Show hostapd status
             echo "<b>hostapd: </b>" . shell_exec("systemctl status hostapd") . "<br>" ;
             //Show samba status
-            echo "<b>hostapd: </b>" . shell_exec("systemctl status smbd") . "<br>" ;
+            echo "<b>samba: </b>" . shell_exec("systemctl status smbd") . "<br>" ;
             //Show dnsmasq status
             echo "<b>dnsmasq: </b>" . shell_exec("systemctl status dnsmasq") . "<br><br>" ;
             
