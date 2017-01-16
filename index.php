@@ -35,7 +35,8 @@ GPLv3
             //Show ip
             echo "<b>eth0: </b>" . shell_exec("ip addr |grep eth0") . "<br>" ;
             echo "<b>wlan0: </b>" . shell_exec("ip addr |grep wlan0") . "<br>" ;
-            echo "<b>External IP: </b>" . shell_exec("curl canihazip.com/s") . "<br><br>" ;
+            echo "<b>External IP: </b>" . shell_exec("curl canihazip.com/s") . "<br>" ;
+            echo "<b>DNS Server: </b>" . shell_exec("nmcli dev show | grep DNS") . "<br><br>" ;
              
             //Reboot
             if (isset($_GET["reboot"])) {
