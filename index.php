@@ -25,6 +25,8 @@ GPLv3
             echo "<b>nginx: </b>" . shell_exec("systemctl status nginx") . "<br>" ;
             //Show hostapd status
             echo "<b>hostapd: </b>" . shell_exec("systemctl status hostapd") . "<br>" ;
+            //Show samba status
+            echo "<b>hostapd: </b>" . shell_exec("systemctl status smbd") . "<br>" ;
             //Show dnsmasq status
             echo "<b>dnsmasq: </b>" . shell_exec("systemctl status dnsmasq") . "<br><br>" ;
             
@@ -32,7 +34,7 @@ GPLv3
             echo "Ports and network <br>";
             //Show ip
             echo "<b>eth0: </b>" . shell_exec("ip addr |grep eth0") . "<br>" ;
-            echo "<b>eth1: </b>" . shell_exec("ip addr |grep eth1") . "<br><br>" ;
+            echo "<b>wlan0: </b>" . shell_exec("ip addr |grep wlan0") . "<br><br>" ;
             
             //Reboot
             if (isset($_GET["reboot"])) {
@@ -54,10 +56,18 @@ GPLv3
                     shell_exec("systemctl restart dnsmasq.service");
                 }
             }
+            
+            //Restart nginx
+            if (isset($_GET["rstnginx"])) {
+                if ($_GET["rstnginx"] == true) {
+                    shell_exec("systemctl restart nginx.service");
+                }
+            }
         ?>
        
         <a href="index.php?reboot=true"><p>Reboot the Pi</p></a>
         <a href="index.php?rsthostapd=true"><p>Restart hostapd</p></a>
         <a href="index.php?rstdnsmasq=true"><p>Restart dnsmasq</p></a>
+        <a href="index.php?rstnginx=true"><p>Restart nginx</p></a>
     </body>
 </html>
