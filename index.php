@@ -31,11 +31,12 @@ GPLv3
             echo "<b>dnsmasq: </b>" . shell_exec("systemctl status dnsmasq") . "<br><br>" ;
             
             //Ports and network
-            echo "Ports and network <br>";
+            echo "Ports and network: <br>";
             //Show ip
             echo "<b>eth0: </b>" . shell_exec("ip addr |grep eth0") . "<br>" ;
-            echo "<b>wlan0: </b>" . shell_exec("ip addr |grep wlan0") . "<br><br>" ;
-            
+            echo "<b>wlan0: </b>" . shell_exec("ip addr |grep wlan0") . "<br>" ;
+            echo "<b>External IP: </b>" . shell_exec("curl canihazip.com/s") . "<br><br>" ;
+             
             //Reboot
             if (isset($_GET["reboot"])) {
                 if ($_GET["reboot"] == true) {
